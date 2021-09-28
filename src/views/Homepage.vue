@@ -10,7 +10,7 @@
           >
         </div>
         <h2><strong>Todo List</strong></h2>
-        <div v-if="items.length < 0" class="">No Items on you list</div>
+        <div v-if="items.length <= 0" class="">No Items on you list</div>
         <ul v-else class="block mt-2">
           <li
             v-for="(item, index) in items"
