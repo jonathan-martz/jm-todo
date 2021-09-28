@@ -5,6 +5,7 @@ export default {
     mutations: {
         "todo-add": function (state, data) {
             state.items.push(data);
+            console.log(data);
         },
         "todo-update": function (state, data) {
             for (let i = 0; i < state.items.length; i++) {
@@ -26,13 +27,9 @@ export default {
             data.that.$localStorage.set('todos', JSON.stringify([]));
         },
         "todo-load": function (state, data) {
-            if (this.$localStorage.get('todos')) {
+            if (JSON.parse(data.that.$localStorage.get('todos')).length > 0) {
                 state.items = JSON.parse(data.that.$localStorage.get('todos'));
             }
-            else {
-                data.that.$localStorage.set('todos', JSON.stringify([]));
-            }
-
         }
     }
 };

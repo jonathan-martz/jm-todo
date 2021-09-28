@@ -4,13 +4,12 @@
       <div class="col-span-3 text-center">
         <div class="text-right">
           <router-link
-          to="/add"
-          class="px-2 py-2 bg-white border-black border-1"
-          >Add</router-link
-        >
+            to="/add"
+            class="px-2 py-2 bg-white border-black border-1"
+            >Add</router-link
+          >
         </div>
         <h2><strong>Todo List</strong></h2>
-        {{ items }}
         <div v-if="items.length < 0" class="">No Items on you list</div>
         <ul v-else class="block mt-2">
           <li
@@ -37,10 +36,18 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    this.$store.commit("todo-load", {
+      that: this,
+    });
+  },
   methods: {
     remove: function(index) {
       this.$store.commit("todo-remove", {
         index,
+      });
+      this.$store.commit("todo-save", {
+        that: this,
       });
     },
     edit: function(index) {
