@@ -26,7 +26,7 @@ export default {
             data.that.$localStorage.set('todos', JSON.stringify(state.items));
         },
         "todo-load": function (state, data) {
-            if (JSON.parse(data.that.$localStorage.get('todos')).length > 0) {
+            if (data.that.$localStorage.get('todos')) {
                 state.items = JSON.parse(data.that.$localStorage.get('todos'));
             }
         }
