@@ -11,17 +11,17 @@
         </div>
         <h2><strong>Todo List</strong></h2>
         <div v-if="items.length <= 0" class="">No Items on you list</div>
-        <ul v-else class="block mt-2">
+        <ul v-else class="mt-2">
           <li
             v-for="(item, index) in items"
             :key="index"
-            class="flex justify-center px-2 py-2 text-lg text-center text-black bg-white border-black"
+            class="flex justify-center px-2 py-2 mt-2 text-lg text-center text-black bg-white border-black"
           >
             <div class="text">{{ item.title }}</div>
-            <button class="mr-2">
-              <font-awesome-icon icon="trash" @click="remove(index)" />
+            <button class="px-2 py-1 ml-1 mr-1 text-white bg-black square">
+              <font-awesome-icon icon="times" @click="remove(index)" />
             </button>
-            <button class="">
+            <button class="px-2 py-1 ml-1 mr-2 text-white bg-black square">
               <font-awesome-icon icon="edit" @click="edit(index)" />
             </button>
           </li>
@@ -61,3 +61,9 @@ export default {
   },
 };
 </script>
+<style lang="less" scoped>
+.square{
+  width: 35px;
+  height: 35px;
+}  
+</style>
